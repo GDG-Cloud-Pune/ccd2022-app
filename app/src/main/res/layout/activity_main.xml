@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/viewLogo"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="#A4FDFDFD"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/brackets_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/brackets"
+        android:layout_marginStart="30dp"
+        android:contentDescription="@string/google_image"
+        app:layout_constraintStart_toStartOf="@id/viewLogo"
+        app:layout_constraintTop_toTopOf="@id/viewLogo"
+        app:layout_constraintBottom_toBottomOf="@id/viewLogo"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Scan QR Code"
+        android:textColor="@color/black"
+        android:layout_marginStart="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        app:layout_constraintStart_toEndOf="@id/brackets_image"
+        app:layout_constraintEnd_toEndOf="@id/viewLogo"
+        app:layout_constraintTop_toTopOf="@id/viewLogo"
+        app:layout_constraintBottom_toBottomOf="@id/viewLogo"/>
+
+    <FrameLayout
+        android:id="@+id/framelayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewLogo"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".SignInActivity">
+
+    <ImageView
+        android:id="@+id/imageGDG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/gdg_cloud"
+        android:layout_marginTop="60dp"
+        android:contentDescription="@string/google_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signin"
+        android:textColor="@color/black"
+        android:layout_marginTop="35dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintTop_toBottomOf="@id/imageGDG"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/txtEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/user_id"
+        android:textColor="@color/black"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toStartOf="@id/eEmailAddress"
+        app:layout_constraintEnd_toEndOf="@id/eEmailAddress"
+        app:layout_constraintTop_toBottomOf="@id/txt"
+        app:layout_constraintBottom_toTopOf="@id/eEmailAddress"/>
+
+    <EditText
+        android:id="@+id/eEmailAddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:autofillHints="emailAddress"
+        android:background="@drawable/edit_bg_drawable"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/txtPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtEmail"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/txtPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/password"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toStartOf="@id/eEmailAddress"
+        app:layout_constraintEnd_toEndOf="@id/eEmailAddress"
+        app:layout_constraintTop_toBottomOf="@id/eEmailAddress"
+        app:layout_constraintBottom_toTopOf="@id/ePassword"/>
+
+    <EditText
+        android:id="@+id/ePassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:autofillHints="emailAddress"
+        android:background="@drawable/edit_bg_drawable"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/btnSignIn"
+        app:layout_constraintEnd_toEndOf="@id/eEmailAddress"
+        app:layout_constraintStart_toStartOf="@id/eEmailAddress"
+        app:layout_constraintTop_toBottomOf="@id/txtPassword"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/btnSignIn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_bg_drawable"
+        android:text="@string/log_in"
+        android:onClick="LogIn"
+        android:textColor="@color/white"
+        android:padding="12dp"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@id/eEmailAddress"
+        app:layout_constraintEnd_toEndOf="@id/eEmailAddress"
+        app:layout_constraintTop_toBottomOf="@id/ePassword"
+        app:layout_constraintBottom_toTopOf="@id/image_google_pune"/>
+
+
+    <ImageView
+        android:id="@+id/image_google_pune"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:src="@drawable/gdg_cloud_pune"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="60dp"
+        android:contentDescription="@string/google_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

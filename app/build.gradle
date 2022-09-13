@@ -5,12 +5,7 @@ plugins {
 
 android {
     signingConfigs {
-        release {
-            storeFile file('C:\\Users\\shash\\AndroidStudioProjects\\ccd2022-app\\keyStore.jks')
-            storePassword '123456'
-            keyAlias 'Key0'
-            keyPassword '123456'
-        }
+        release {}
     }
     compileSdk 33
 
@@ -27,20 +22,31 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
     }
+
+    ndkVersion '25.1.8937393'
+
+    externalNativeBuild {
+        ndkBuild {
+            path 'src/main/jni/Android.mk' //path of Android.mk file
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 }
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.5.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.firebase:firebase-analytics:21.1.1'
@@ -54,5 +60,4 @@ dependencies {
 
 //    TODO RunTime Permissions
     implementation 'com.karumi:dexter:6.2.3'
-
 }

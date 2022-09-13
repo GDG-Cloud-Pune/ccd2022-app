@@ -70,8 +70,8 @@ public class ScannerFragment extends Fragment implements ZXingScannerView.Result
     @Override
     public void handleResult(Result rawResult) {
         String res = rawResult.getText().toString();
-        startActivity(new Intent(requireContext(), DetailsActivity.class));
-        Toast.makeText(requireContext(), res, Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(requireContext(), DetailsActivity.class).putExtra("id",res));
+//        Toast.makeText(requireContext(), res, Toast.LENGTH_SHORT).show();
         Log.d("TAG", "handleResult: "+res);
     }
 }

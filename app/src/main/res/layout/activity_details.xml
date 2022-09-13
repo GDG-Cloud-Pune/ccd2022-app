@@ -70,6 +70,7 @@
         android:layout_height="wrap_content"
         android:text="@string/username"
         android:textColor="@color/black"
+        android:visibility="invisible"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toEndOf="@id/txtName"
         app:layout_constraintEnd_toEndOf="@id/txtAttendee"
@@ -97,6 +98,10 @@
         android:layout_height="wrap_content"
         android:text="@string/organization_name"
         android:textColor="@color/black"
+        android:visibility="invisible"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginEnd="18dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toEndOf="@id/txtOrganization"
         app:layout_constraintEnd_toEndOf="@id/txtAttendee"
@@ -153,6 +158,36 @@
         app:layout_constraintStart_toStartOf="@id/check_in"
         app:layout_constraintTop_toBottomOf="@id/check_in"/>
 
+    <TextView
+        android:id="@+id/txtCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checked_in"
+        android:textColor="@color/green"
+        android:padding="4dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/btnCheckIn"
+        app:layout_constraintTop_toBottomOf="@id/check_in"
+        app:layout_constraintEnd_toStartOf="@id/imageCheckedIn"/>
+
+    <ImageView
+        android:id="@+id/imageCheckedIn"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_correct"
+        android:layout_marginStart="10dp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintStart_toEndOf="@id/txtCheck"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/txtCheck"
+        app:layout_constraintBottom_toBottomOf="@id/txtCheck" />
+
+
+
 
     <View
         android:id="@+id/food"
@@ -192,6 +227,34 @@
         app:layout_constraintTop_toBottomOf="@id/food"/>
 
     <TextView
+        android:id="@+id/txtMorningTea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/completed"
+        android:textColor="@color/green"
+        android:padding="4dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/btnMorningTea"
+        app:layout_constraintTop_toBottomOf="@id/food"
+        app:layout_constraintEnd_toStartOf="@id/imageMorningTea"/>
+
+    <ImageView
+        android:id="@+id/imageMorningTea"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_correct"
+        android:layout_marginStart="10dp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintStart_toEndOf="@id/txtMorningTea"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/txtMorningTea"
+        app:layout_constraintBottom_toBottomOf="@id/txtMorningTea" />
+
+    <TextView
         android:id="@+id/btnLunch"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
@@ -204,6 +267,36 @@
         android:layout_marginStart="20dp"
         app:layout_constraintStart_toStartOf="@id/food"
         app:layout_constraintTop_toBottomOf="@id/btnMorningTea"/>
+
+
+    <TextView
+        android:id="@+id/txtLunch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/completed"
+        android:textColor="@color/green"
+        android:padding="4dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/btnLunch"
+        app:layout_constraintTop_toBottomOf="@id/btnMorningTea"
+        app:layout_constraintEnd_toStartOf="@id/imageLunch"/>
+
+    <ImageView
+        android:id="@+id/imageLunch"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_correct"
+        android:layout_marginStart="10dp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintStart_toEndOf="@id/txtLunch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/txtLunch"
+        app:layout_constraintBottom_toBottomOf="@id/txtLunch" />
+
 
     <TextView
         android:id="@+id/btnHighTea"
@@ -219,6 +312,33 @@
         app:layout_constraintStart_toStartOf="@id/food"
         app:layout_constraintTop_toBottomOf="@id/btnLunch"/>
 
+    <TextView
+        android:id="@+id/txtHighTea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/completed"
+        android:textColor="@color/green"
+        android:padding="4dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/btnHighTea"
+        app:layout_constraintTop_toBottomOf="@id/btnLunch"
+        app:layout_constraintEnd_toStartOf="@id/imageHighTea"/>
+
+    <ImageView
+        android:id="@+id/imageHighTea"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_correct"
+        android:layout_marginStart="10dp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintStart_toEndOf="@id/txtHighTea"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/txtHighTea"
+        app:layout_constraintBottom_toBottomOf="@id/txtHighTea" />
 
     <View
         android:id="@+id/swags"
@@ -257,6 +377,35 @@
         android:layout_marginStart="20dp"
         app:layout_constraintStart_toStartOf="@id/swags"
         app:layout_constraintTop_toBottomOf="@id/swags"/>
+
+
+    <TextView
+        android:id="@+id/txtSwag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/completed"
+        android:textColor="@color/green"
+        android:padding="4dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/btnSwags"
+        app:layout_constraintTop_toBottomOf="@id/txtSwags"
+        app:layout_constraintEnd_toStartOf="@id/imageSwags"/>
+
+    <ImageView
+        android:id="@+id/imageSwags"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_correct"
+        android:layout_marginStart="10dp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintStart_toEndOf="@id/txtSwag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/txtSwag"
+        app:layout_constraintBottom_toBottomOf="@id/txtSwag" />
 
     <ImageView
         android:id="@+id/image_google_days"

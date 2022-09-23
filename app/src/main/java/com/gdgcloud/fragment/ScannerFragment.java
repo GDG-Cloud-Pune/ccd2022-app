@@ -1,6 +1,7 @@
 package com.gdgcloud.fragment;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -28,13 +29,14 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
 public class ScannerFragment extends Fragment implements ZXingScannerView.ResultHandler{
 
     ZXingScannerView scannerView;
+    ProgressDialog progress;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         scannerView = new ZXingScannerView(requireContext());
-
+        progress = new ProgressDialog(requireContext());
         Dexter.withContext(requireContext())
                 .withPermission(Manifest.permission.CAMERA)
                 .withListener(new PermissionListener() {
@@ -59,6 +61,10 @@ public class ScannerFragment extends Fragment implements ZXingScannerView.Result
     public void onPause() {
         super.onPause();
         scannerView.stopCamera();
+        progress.show();
+        progress.setCancelable(false);
+        progress.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        progress.setContentView(R.layout.progress_bar);
     }
 
     @Override
@@ -66,10 +72,12 @@ public class ScannerFragment extends Fragment implements ZXingScannerView.Result
         super.onResume();
         scannerView.setResultHandler(this::handleResult);
         scannerView.startCamera();
+        progress.dismiss();
     }
     @Override
     public void handleResult(Result rawResult) {
         String res = rawResult.getText().toString();
+        progress.dismiss();
         startActivity(new Intent(requireContext(), DetailsActivity.class).putExtra("id",res));
 //        Toast.makeText(requireContext(), res, Toast.LENGTH_SHORT).show();
         Log.d("TAG", "handleResult: "+res);

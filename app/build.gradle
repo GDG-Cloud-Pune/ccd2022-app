@@ -60,4 +60,7 @@ dependencies {
 
 //    TODO RunTime Permissions
     implementation 'com.karumi:dexter:6.2.3'
+
+//    TODO GIF Image View
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.17'
 }

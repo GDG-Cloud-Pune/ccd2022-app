@@ -102,7 +102,7 @@ public class DetailsActivity extends AppCompatActivity {
         btnLunch = findViewById(R.id.btnLunch);
         btnHighTea = findViewById(R.id.btnHighTea);
         btnSwags = findViewById(R.id.btnSwags);
-        btnSwags.setBackgroundResource(R.drawable.btn_bg_drawable_cyan);
+//        btnSwags.setBackgroundResource(R.drawable.btn_bg_drawable_cyan);
     }
 
 //    TODO ================= Sign Out Button =====================
@@ -199,42 +199,6 @@ public class DetailsActivity extends AppCompatActivity {
                 txtSwags.setText("Feedback");
                 txtSwags.setVisibility(View.VISIBLE);
                 txtSwags.setTextColor(Color.RED);
-
-                if (morningTea.equals("true")){
-                    txtMorningTea.setVisibility(View.VISIBLE);
-                    imageMorningTea.setVisibility(View.VISIBLE);
-                    btnMorningTea.setEnabled(false);
-                    btnMorningTea.setBackgroundResource(R.drawable.btn_bg_drawable_cyan);
-                }else {
-                    txtMorningTea.setVisibility(View.INVISIBLE);
-                    imageMorningTea.setVisibility(View.INVISIBLE);
-                    btnMorningTea.setEnabled(true);
-                    btnMorningTea.setBackgroundResource(R.drawable.btn_bg_drawable);
-                }
-
-                if (foodl.equals("true")){
-                    txtLunch.setVisibility(View.VISIBLE);
-                    imageLunch.setVisibility(View.VISIBLE);
-                    btnLunch.setEnabled(false);
-                    btnLunch.setBackgroundResource(R.drawable.btn_bg_drawable_cyan);
-                }else{
-                    txtLunch.setVisibility(View.INVISIBLE);
-                    imageLunch.setVisibility(View.INVISIBLE);
-                    btnLunch.setEnabled(true);
-                    btnLunch.setBackgroundResource(R.drawable.btn_bg_drawable);
-                }
-
-                if (foodht.equals("true")){
-                    txtHighTea.setVisibility(View.VISIBLE);
-                    imageHighTea.setVisibility(View.VISIBLE);
-                    btnHighTea.setEnabled(false);
-                    btnHighTea.setBackgroundResource(R.drawable.btn_bg_drawable_cyan);
-                }else {
-                    txtHighTea.setVisibility(View.INVISIBLE);
-                    imageHighTea.setVisibility(View.INVISIBLE);
-                    btnHighTea.setEnabled(true);
-                    btnHighTea.setBackgroundResource(R.drawable.btn_bg_drawable);
-                }
 
                 if (checkInStatus.equals("true")){
                     txtCheckIn.setVisibility(View.VISIBLE);
@@ -370,43 +334,88 @@ public class DetailsActivity extends AppCompatActivity {
 //                        }
 //                    }
 
-                    btnMorningTea.setOnClickListener(v -> new MorningTea().execute("tickets",id,"foodmt"));
-
-                    btnLunch.setOnClickListener(v -> new Lunch().execute("tickets",id,"foodl"));
-
-                    btnHighTea.setOnClickListener(v -> new HighTea().execute("tickets",id,"foodht"));
-
-                    btnSwags.setBackgroundResource(R.drawable.btn_bg_drawable_cyan);
-
-                    if (swags.equals("false")){
-                        txtSwags.setVisibility(View.VISIBLE);
-                        txtSwags.setTextColor(Color.RED);
-                        txtSwags.setText("Feedback");
-                        imageSwags.setVisibility(View.INVISIBLE);
-                        btnSwags.setEnabled(true);
-                        if (feedback.equals("true")){
-                            btnSwags.setBackgroundResource(R.drawable.btn_bg_drawable);
-                            btnSwags.setEnabled(true);
-                            txtSwags.setVisibility(View.VISIBLE);
-
-                            btnSwags.setOnClickListener(v -> new Swags().execute("tickets",id,"swags"));
-
-                        }else {
-                            btnSwags.setBackgroundResource(R.drawable.btn_bg_drawable_cyan);
-                            btnSwags.setEnabled(false);
-                            txtSwags.setVisibility(View.VISIBLE);
-                            txtSwags.setText("Feedback");
-                            imageSwags.setVisibility(View.INVISIBLE);
-                        }
+                    if (morningTea.equals("true")){
+                        txtMorningTea.setVisibility(View.VISIBLE);
+                        imageMorningTea.setVisibility(View.VISIBLE);
+                        btnMorningTea.setEnabled(false);
+                        btnMorningTea.setBackgroundResource(R.drawable.btn_bg_drawable_cyan);
                     }else {
-                        txtSwags.setVisibility(View.VISIBLE);
-                        txtSwags.setTextColor(getResources().getColor(R.color.green));
-                        txtSwags.setText("Completed");
-                        imageSwags.setVisibility(View.VISIBLE);
-                        btnSwags.setEnabled(false);
+                        txtMorningTea.setVisibility(View.INVISIBLE);
+                        imageMorningTea.setVisibility(View.INVISIBLE);
+                        btnMorningTea.setEnabled(true);
+                        btnMorningTea.setBackgroundResource(R.drawable.btn_bg_drawable);
+                        btnMorningTea.setOnClickListener(v -> new MorningTea().execute("tickets",id,"foodmt"));
                     }
 
+                    if (foodl.equals("true")){
+                        txtLunch.setVisibility(View.VISIBLE);
+                        imageLunch.setVisibility(View.VISIBLE);
+                        btnLunch.setEnabled(false);
+                        btnLunch.setBackgroundResource(R.drawable.btn_bg_drawable_cyan);
+                    }else{
+                        txtLunch.setVisibility(View.INVISIBLE);
+                        imageLunch.setVisibility(View.INVISIBLE);
+                        btnLunch.setEnabled(true);
+                        btnLunch.setBackgroundResource(R.drawable.btn_bg_drawable);
+                        btnLunch.setOnClickListener(v -> new Lunch().execute("tickets",id,"foodl"));
+                    }
 
+                    if (foodht.equals("true")){
+                        txtHighTea.setVisibility(View.VISIBLE);
+                        imageHighTea.setVisibility(View.VISIBLE);
+                        btnHighTea.setEnabled(false);
+                        btnHighTea.setBackgroundResource(R.drawable.btn_bg_drawable_cyan);
+                    }else {
+                        txtHighTea.setVisibility(View.INVISIBLE);
+                        imageHighTea.setVisibility(View.INVISIBLE);
+                        btnHighTea.setEnabled(true);
+                        btnHighTea.setBackgroundResource(R.drawable.btn_bg_drawable);
+                        btnHighTea.setOnClickListener(v -> new HighTea().execute("tickets",id,"foodht"));
+                    }
+
+                    if (swags.equals("true")){
+                        txtSwags.setVisibility(View.VISIBLE);
+                        imageSwags.setVisibility(View.VISIBLE);
+                        btnSwags.setEnabled(false);
+                        txtSwags.setText("Completed");
+                        txtSwags.setTextColor(getResources().getColor(R.color.green));
+                        btnSwags.setBackgroundResource(R.drawable.btn_bg_drawable_cyan);
+                    }else {
+                        txtSwags.setVisibility(View.VISIBLE);
+                        imageSwags.setVisibility(View.INVISIBLE);
+                        btnSwags.setEnabled(true);
+                        txtSwags.setText("Feedback");
+                        txtSwags.setTextColor(Color.RED);
+                        btnSwags.setBackgroundResource(R.drawable.btn_bg_drawable);
+                        btnSwags.setOnClickListener(v -> new Swags().execute("tickets",id,"swags"));
+                    }
+//                    if (swags.equals("false")){
+//                        txtSwags.setVisibility(View.VISIBLE);
+//                        txtSwags.setTextColor(Color.RED);
+//                        txtSwags.setText("Feedback");
+//                        imageSwags.setVisibility(View.INVISIBLE);
+//                        btnSwags.setEnabled(true);
+//                        if (feedback.equals("true")){
+//                            btnSwags.setBackgroundResource(R.drawable.btn_bg_drawable);
+//                            btnSwags.setEnabled(true);
+//                            txtSwags.setVisibility(View.VISIBLE);
+//
+//                            btnSwags.setOnClickListener(v -> new Swags().execute("tickets",id,"swags"));
+//
+//                        }else {
+//                            btnSwags.setBackgroundResource(R.drawable.btn_bg_drawable_cyan);
+//                            btnSwags.setEnabled(false);
+//                            txtSwags.setVisibility(View.VISIBLE);
+//                            txtSwags.setText("Feedback");
+//                            imageSwags.setVisibility(View.INVISIBLE);
+//                        }
+//                    }else {
+//                        txtSwags.setVisibility(View.VISIBLE);
+//                        txtSwags.setTextColor(getResources().getColor(R.color.green));
+//                        txtSwags.setText("Completed");
+//                        imageSwags.setVisibility(View.VISIBLE);
+//                        btnSwags.setEnabled(false);
+//                    }
                 }else {
                     btnCheckIn.setBackgroundResource(R.drawable.btn_bg_drawable);
                     btnCheckIn.setOnClickListener(v -> {
@@ -469,8 +478,6 @@ public class DetailsActivity extends AppCompatActivity {
                 txtCheckIn.setVisibility(View.VISIBLE);
                 imageCheckIn.setVisibility(View.VISIBLE);
                 btnCheckIn.setBackgroundResource(R.drawable.btn_bg_drawable_cyan);
-
-
 
             }catch (JSONException e){
                 Toast.makeText(DetailsActivity.this, "Try again", Toast.LENGTH_SHORT).show();
@@ -700,6 +707,8 @@ public class DetailsActivity extends AppCompatActivity {
                 Log.d("onPostExecute: ", status);
 
                 txtSwags.setVisibility(View.VISIBLE);
+                txtSwags.setText("Completed");
+                txtSwags.setTextColor(getResources().getColor(R.color.green));
                 imageSwags.setVisibility(View.VISIBLE);
 
                 btnSwags.setBackgroundResource(R.drawable.btn_bg_drawable_cyan);

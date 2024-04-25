@@ -1,1 +1,1 @@
-# ccd2022-app
+# Google Cloud Community Days 2022 App

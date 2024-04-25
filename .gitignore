@@ -14,3 +14,8 @@
 .cxx
 local.properties
 google-services.json
+Android.mk
+Application.mk
+keys.c
+network_security_config.xml
+keyStore.jks
